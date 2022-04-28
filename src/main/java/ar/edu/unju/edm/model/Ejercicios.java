@@ -4,8 +4,7 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner; // para usar scanner
 
 @Component
-
-public class Ejercicios {
+public class Ejercicios { // cambiar por singular "Ejercicio"
 	
 	private int numero;
 	

@@ -1,5 +1,6 @@
 package ar.edu.unju.edm.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.edm.model.Ejercicios;
 
-import java.util.Scanner;
-
 @Controller
 public class EjerciciosController {
+	
+	@Autowired
+	Ejercicios unEjercicio;
+	
 	
 	@GetMapping("/menu")
 
@@ -25,11 +28,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio01")
 	
 	public String getEjercicio01Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioUno = new Ejercicios();
+		//Ejercicios ejercicioUno = new Ejercicios();
 		
-		ejercicioUno.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio01", ejercicioUno.factorial());
+		model.addAttribute("ejercicio01",unEjercicio.factorial());
 		
 		return "ejercicio01";
 		
@@ -42,11 +45,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio02")
 	
 	public String getEjercicio02Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioDos = new Ejercicios();
+		//Ejercicios ejercicioDos = new Ejercicios();
 		
-		ejercicioDos.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		boolean esbisiesto = ejercicioDos.bisiesto();
+		boolean esbisiesto = unEjercicio.bisiesto();
 		String verdadero="si";
 		
 		if(esbisiesto==false) {
@@ -67,12 +70,12 @@ public class EjerciciosController {
 
 	public String getEjercicio03Page(@RequestParam (name = "n1") int n1, Model model) {
 
-		Ejercicios ejercicioTres = new Ejercicios();
+		//Ejercicios ejercicioTres = new Ejercicios();
 		
-		ejercicioTres.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
 		
-		model.addAttribute("ejercicio03", ejercicioTres.par());
+		model.addAttribute("ejercicio03", unEjercicio.par());
 		
 		return "ejercicio03";
 		
@@ -85,11 +88,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio04")
 	
 	public String getEjercicio04Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioCuatro = new Ejercicios();
+		//Ejercicios ejercicioCuatro = new Ejercicios();
 		
-		ejercicioCuatro.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio04", ejercicioCuatro.mes());
+		model.addAttribute("ejercicio04", unEjercicio.mes());
 		return "ejercicio04";
 		
 	}
@@ -101,11 +104,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio05")
 	
 	public String getEjercicio05Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioCinco = new Ejercicios();
+		//Ejercicios ejercicioCinco = new Ejercicios();
 		
-		ejercicioCinco.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio05",ejercicioCinco.mes2());
+		model.addAttribute("ejercicio05", unEjercicio.mes2());
 		
 		return "ejercicio05";
 	}
@@ -117,11 +120,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio06")
 	
 	public String getEjercicio06Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioSeis = new Ejercicios();
+		//Ejercicios ejercicioSeis = new Ejercicios();
 		
-		ejercicioSeis.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio06",ejercicioSeis.evaluarCondicion());
+		model.addAttribute("ejercicio06", unEjercicio.evaluarCondicion());
 		
 		return "ejercicio06";
 	}
@@ -133,11 +136,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio08")
 	
 	public String getEjercicio08Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioOcho = new Ejercicios();
+		//Ejercicios ejercicioOcho = new Ejercicios();
 		
-		ejercicioOcho.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio08",ejercicioOcho.secuencia());
+		model.addAttribute("ejercicio08", unEjercicio.secuencia());
 		
 		return "ejercicio08";
 	}
@@ -148,9 +151,9 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio09")
 	
 	public String getEjercicio09Page(Model model) {
-		Ejercicios ejercicioNueve = new Ejercicios();
+		//Ejercicios ejercicioNueve = new Ejercicios();
 		
-		model.addAttribute("ejercicio09", ejercicioNueve.mostrarNumerosFor());
+		model.addAttribute("ejercicio09", unEjercicio.mostrarNumerosFor());
 		
 		return "ejercicio09";
 	}
@@ -161,9 +164,9 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio10")
 	
 	public String getEjercicio10Page(Model model) {
-		Ejercicios ejercicioDiez = new Ejercicios();
+		//Ejercicios ejercicioDiez = new Ejercicios();
 		
-		model.addAttribute("ejercicio10", ejercicioDiez.mostrarNumerosWhile());
+		model.addAttribute("ejercicio10", unEjercicio.mostrarNumerosWhile());
 		
 		return "ejercicio10";
 	}
@@ -173,9 +176,9 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio11")
 	
 	public String getEjercicio11Page(Model model) {
-		Ejercicios ejercicioOnce = new Ejercicios();
+		//Ejercicios ejercicioOnce = new Ejercicios();
 		
-		model.addAttribute("ejercicio11", ejercicioOnce.mostrarNumerosDoWhile());
+		model.addAttribute("ejercicio11", unEjercicio.mostrarNumerosDoWhile());
 		
 		return "ejercicio11";
 	}
@@ -185,11 +188,11 @@ public class EjerciciosController {
 	@GetMapping("/ejercicio12")
 	
 	public String getEjercicio12Page(@RequestParam(name="n1") int n1, Model model) {
-		Ejercicios ejercicioDoce = new Ejercicios();
+		//Ejercicios ejercicioDoce = new Ejercicios();
 		
-		ejercicioDoce.setNumero(n1);
+		unEjercicio.setNumero(n1);
 		
-		model.addAttribute("ejercicio12",ejercicioDoce.calculoTiempo());
+		model.addAttribute("ejercicio12", unEjercicio.calculoTiempo());
 		
 		return "ejercicio12";
 	}
